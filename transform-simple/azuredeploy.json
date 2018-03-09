@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mediaServicesAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "The Media Services account in which the Transform should be created."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The Media Services account location."
+      }
+    },
+    "transformName": {
+      "type": "string",
+      "defaultValue": "MultipleBitrateMP4",
+      "metadata": {
+        "description": "The name of the new Transform."
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Media/mediaservices/transforms",
+      "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('transformName'))]",
+      "apiVersion": "2018-02-01-privatepreview",
+      "location": "[parameters('location')]",
+      "properties": {
+        "description": "Example transform to illustrate create and update.",
+        "created": "0001-01-01T00:00:00-05:00",
+        "lastModified": "0001-01-01T00:00:00-05:00",
+        "outputs": [
+          {
+            "relativePriority": null,
+            "onError": null,
+            "preset": {
+              "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+              "presetName": "ContentAdaptiveMultipleBitrateMP4"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "mediaServiceAccountLocation": {
+      "type": "string",
+      "value": "[reference(concat('Microsoft.Media/mediaservices/', parameters('mediaServicesAccountName')), '2018-02-01-privatepreview', 'Full').location]"
+    }
+  }
+}
