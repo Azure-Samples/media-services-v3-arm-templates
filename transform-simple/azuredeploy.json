@@ -8,12 +8,6 @@
         "description": "The Media Services account in which the Transform should be created."
       }
     },
-    "location": {
-      "type": "string",
-      "metadata": {
-        "description": "The Media Services account location."
-      }
-    },
     "transformName": {
       "type": "string",
       "defaultValue": "MultipleBitrateMP4",
@@ -25,10 +19,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Media/mediaservices/transforms",
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('transformName'))]",
-      "apiVersion": "2018-02-01-privatepreview",
-      "location": "[parameters('location')]",
+      "type": "Microsoft.Media/mediaservices/transforms",
+      "apiVersion": "2018-03-30-preview",
+      "location": "[resourceGroup().location]",
       "properties": {
         "description": "Example transform to illustrate create and update.",
         "created": "0001-01-01T00:00:00-05:00",

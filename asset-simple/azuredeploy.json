@@ -18,9 +18,9 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Media/mediaservices/assets",
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('assetName'))]",
-      "apiVersion": "2018-02-01-privatepreview",
+      "type": "Microsoft.Media/mediaservices/assets",
+      "apiVersion": "2018-03-30-preview",
       "properties": {
         "description": "My Asset."
       }
