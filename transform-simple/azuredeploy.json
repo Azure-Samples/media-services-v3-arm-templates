@@ -10,7 +10,7 @@
     },
     "transformName": {
       "type": "string",
-      "defaultValue": "MultipleBitrateMP4",
+      "defaultValue": "AdaptiveBitrate",
       "metadata": {
         "description": "The name of the new Transform."
       }
@@ -22,18 +22,15 @@
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('transformName'))]",
       "type": "Microsoft.Media/mediaservices/transforms",
       "apiVersion": "2018-03-30-preview",
-      "location": "[resourceGroup().location]",
       "properties": {
         "description": "Example transform to illustrate create and update.",
-        "created": "0001-01-01T00:00:00-05:00",
-        "lastModified": "0001-01-01T00:00:00-05:00",
         "outputs": [
           {
             "relativePriority": null,
             "onError": null,
             "preset": {
               "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
-              "presetName": "ContentAdaptiveMultipleBitrateMP4"
+              "presetName": "AdaptiveStreaming"
             }
           }
         ]

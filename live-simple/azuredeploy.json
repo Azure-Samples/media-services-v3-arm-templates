@@ -19,8 +19,8 @@
   "variables": {},
   "resources": [
     {
-      "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('liveEventName'))]",
-      "type": "Microsoft.Media/mediaservices/liveEvent",
+      "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('transformName'))]",
+      "type": "Microsoft.Media/mediaservices/liveevents",
       "apiVersion": "2018-03-30-preview",
       "location": "[resourceGroup().location]",
       "properties": {
@@ -40,6 +40,14 @@
               ]
             }
           }
+        },
+        "encoding": {
+          "encodingType": "None",
+          "presetName": null
+        },
+        "crossSiteAccessPolicies": {
+          "clientAccessPolicy": null,
+          "crossDomainPolicy": null
         }
       }
     }
