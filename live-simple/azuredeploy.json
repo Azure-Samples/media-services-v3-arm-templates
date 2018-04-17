@@ -8,6 +8,13 @@
         "description": "The Media Services account in which the LiveEvent should be created."
       }
     },
+    "location": {
+      "type": "string",
+      "defaultValue": "West US 2",
+      "metadata": {
+        "description": "The location of the Media Services account."
+      }
+    },
     "liveEventName": {
       "type": "string",
       "defaultValue": "",
@@ -22,7 +29,7 @@
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('liveEventName'))]",
       "type": "Microsoft.Media/mediaservices/liveevents",
       "apiVersion": "2018-03-30-preview",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "properties": {
         "description": "Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction",
         "input": {
@@ -45,10 +52,7 @@
           "encodingType": "None",
           "presetName": null
         },
-        "crossSiteAccessPolicies": {
-          "clientAccessPolicy": null,
-          "crossDomainPolicy": null
-        }
+        "streamOptions": []
       }
     }
   ],
