@@ -16,7 +16,7 @@
     {
       "name": "[parameters('mediaServiceName')]",
       "type": "Microsoft.Media/mediaServices",
-      "apiVersion": "2015-10-01",
+      "apiVersion": "2018-03-30-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
@@ -24,8 +24,8 @@
       "properties": {
         "storageAccounts": [
           {
-            "isPrimary": true,
-            "id": "[resourceId('microsoft.storage/storageaccounts/', variables('storageName'))]"
+            "id": "[resourceId('microsoft.storage/storageaccounts/', variables('storageName'))]",
+            "type": "Primary"
           }
         ]
       }
@@ -33,11 +33,28 @@
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
       "sku": {
-        "name": "Standard_LRS"
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "apiVersion": "2017-10-01",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "scale": null,
+      "properties": {
+          "encryption": {
+              "services": {
+                  "file": {
+                      "enabled": true
+                  },
+                  "blob": {
+                      "enabled": true
+                  }
+              },
+              "keySource": "Microsoft.Storage"
+          },
+          "accessTier": "Hot"
       }
     }
   ]
