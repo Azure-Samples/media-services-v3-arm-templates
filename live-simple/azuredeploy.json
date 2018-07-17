@@ -28,7 +28,7 @@
     {
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('liveEventName'))]",
       "type": "Microsoft.Media/mediaservices/liveevents",
-      "apiVersion": "2018-03-30-preview",
+      "apiVersion": "2018-06-01-preview",
       "location": "[parameters('location')]",
       "properties": {
         "description": "Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction",

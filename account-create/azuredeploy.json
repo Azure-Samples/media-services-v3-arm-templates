@@ -16,7 +16,7 @@
     {
       "name": "[parameters('mediaServiceName')]",
       "type": "Microsoft.Media/mediaServices",
-      "apiVersion": "2018-03-30-preview",
+      "apiVersion": "2018-06-01-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"

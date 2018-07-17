@@ -2,6 +2,6 @@
   "itemDisplayName": "Create a Media Services Account using a template",
   "description": "This template creates an Azure Media Services Account with its Storage account.",
   "summary": "Create a Media Services Account with its Storage account using a template.",
-  "githubUsername": "mathieu-benoit",
-  "dateUpdated": "2017-05-12"
+  "githubUsername": "johndeu",
+  "dateUpdated": "2018-07-15"
 }
