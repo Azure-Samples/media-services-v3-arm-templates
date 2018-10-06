@@ -21,7 +21,7 @@
     {
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('transformName'))]",
       "type": "Microsoft.Media/mediaservices/transforms",
-      "apiVersion": "2018-06-01-preview",
+      "apiVersion": "2018-07-01",
       "properties": {
         "description": "Example transform to illustrate create and update.",
         "outputs": [

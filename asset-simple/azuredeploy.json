@@ -20,7 +20,7 @@
     {
       "name": "[concat(parameters('mediaServicesAccountName'), '/', parameters('assetName'))]",
       "type": "Microsoft.Media/mediaservices/assets",
-      "apiVersion": "2018-06-01-preview",
+      "apiVersion": "2018-07-01",
       "properties": {
         "description": "My Asset."
       }
