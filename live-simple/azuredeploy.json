@@ -32,9 +32,21 @@
       "location": "[parameters('location')]",
       "properties": {
         "description": "Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction",
+        "vanityUrl": false,
         "input": {
           "streamingProtocol": "RTMP",
-          "keyFrameIntervalDuration": "PT2S"
+          "keyFrameIntervalDuration": "PT2S",
+          "accessControl": {
+              "ip": {
+                  "allow": [
+                      {
+                          "name": "AllowAll",
+                          "address": "0.0.0.0",
+                          "subnetPrefixLength": 0
+                      }
+                  ]
+              }
+          }
         },
         "preview": {
           "accessControl": {
@@ -52,7 +64,13 @@
           "encodingType": "None",
           "presetName": null
         },
-        "streamOptions": []
+        "streamOptions": [
+          "Default"
+        ],
+        "crossSiteAccessPolicies": {
+            "clientAccessPolicy": null,
+            "crossDomainPolicy": null
+        }
       }
     }
   ],
